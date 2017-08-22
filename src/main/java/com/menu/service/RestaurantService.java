@@ -10,7 +10,9 @@ import java.util.List;
 public interface RestaurantService {
 
 
-    Restaurant save(Restaurant restaurant);
+    Restaurant update(Restaurant restaurant);
+
+    Restaurant create(Restaurant restaurant);
 
     Restaurant get(Integer id);
 

@@ -9,11 +9,14 @@ import java.util.List;
  */
 public interface MealService {
 
-    Meal save(Meal meal, int restId);
+    Meal create(Meal meal, int restId);
+    Meal update(Meal meal, int restId);
 
     Meal get(Integer id, int restId);
 
     List<Meal> getAll(int restId);
 
     void delete(Integer id, int restId);
+
+
 }

@@ -1,6 +1,8 @@
 package com.menu.web;
 
 import com.menu.model.User;
+import com.menu.service.MealService;
+import com.menu.service.RestaurantService;
 import com.menu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,12 @@ public class RootController {
     private UserService userService;
 
     @Autowired
+    private RestaurantService restaurantService;
+
+    @Autowired
+    private MealService mealService;
+
+    @Autowired
     public RootController(UserService userService) {
         this.userService = userService;
     }
@@ -40,6 +48,17 @@ public class RootController {
     public String users(Model model) {
         model.addAttribute("users", userService.getAll());
         return "users";
+    }
+
+    @GetMapping("/restaurants")
+    public String restaurants(Model model) {
+        model.addAttribute("restaurants", restaurantService.getAll());
+        return "restaurants";
+    }
+
+    @GetMapping("/meals")
+    public String meals(Model model) {
+        return "meals";
     }
 
     @GetMapping("/register")

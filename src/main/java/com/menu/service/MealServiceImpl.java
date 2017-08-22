@@ -20,7 +20,11 @@ public class MealServiceImpl implements MealService {
         this.mealRepository = mealRepository;
     }
 
-    public Meal save(Meal meal, int restId) {
+    public Meal create(Meal meal, int restId) {
+        return mealRepository.save(meal, restId);
+    }
+
+    public Meal update(Meal meal, int restId) {
         return mealRepository.save(meal, restId);
     }
 
