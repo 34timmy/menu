@@ -13,13 +13,12 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
+    <tx:annotation-driven/>
 
     <jdbc:initialize-database data-source="dataSource" enabled="${database.init}">
         <jdbc:script location="classpath:db/${jdbc.initLocation}"/>
         <jdbc:script encoding="utf-8" location="classpath:db/populateDB.sql"/>
     </jdbc:initialize-database>
-
-    <tx:annotation-driven/>
 
 
     <beans profile="postgres">
@@ -36,7 +35,7 @@
     <beans profile="datajpa">
         <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
               p:dataSource-ref="dataSource"
-              p:packagesToScan="com.menu.model">
+              p:packagesToScan="com.menu.**.model">
             <!--p:persistenceUnitName="persistenceUnit">-->
 
             <property name="jpaPropertyMap">
@@ -46,25 +45,19 @@
                            value="${hibernate.use_sql_comments}"/>
                     <!--&lt;!&ndash;<entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_AUTO}" value="${hibernate.hbm2ddl.auto}"/>&ndash;&gt;-->
 
-                    <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).CACHE_REGION_FACTORY}"-->
-                           <!--value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory"/>-->
-                    <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_SECOND_LEVEL_CACHE}" value="true"/>-->
-                    <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_QUERY_CACHE}"-->
-                           <!--value="false"/> &lt;!&ndash;default&ndash;&gt;-->
-                    <!--<entry key="#{T(org.hibernate.cache.ehcache.AbstractEhcacheRegionFactory).NET_SF_EHCACHE_CONFIGURATION_RESOURCE_NAME}"-->
-                           <!--value="cache/ehcache.xml"/>-->
-                    <!--&lt;!&ndash;-->
-                                        <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_SCRIPTS_ACTION}" value="drop-and-create"/>-->
-                                        <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_SCRIPTS_CREATE_TARGET}" value="${TOPJAVA_ROOT}/config/ddl/create.ddl"/>-->
-                                        <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_SCRIPTS_DROP_TARGET}" value="${TOPJAVA_ROOT}/config/ddl/drop.ddl"/>-->
-                                        <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_AUTO}" value="create"/>-->
-                    <!--&ndash;&gt;-->
+                    <entry key="#{T(org.hibernate.cfg.AvailableSettings).CACHE_REGION_FACTORY}"
+                           value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory"/>
+                    <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_SECOND_LEVEL_CACHE}" value="true"/>
+                    <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_QUERY_CACHE}"
+                           value="false"/> <!--default-->
+                    <entry key="#{T(org.hibernate.cache.ehcache.AbstractEhcacheRegionFactory).NET_SF_EHCACHE_CONFIGURATION_RESOURCE_NAME}"
+                           value="cache/ehcache.xml"/>
                 </map>
             </property>
 
             <property name="jpaVendorAdapter">
                 <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
-                      p:showSql="${jpa.showSql}">
+                      p:showSql="true">
                 </bean>
             </property>
         </bean>
@@ -73,7 +66,7 @@
         <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
               p:entityManagerFactory-ref="entityManagerFactory"/>
 
-        <bean class="com.menu.repository.JpaUtil"/>
+        <bean class="com.menu.project.repository.JpaUtil"/>
 
         <context:component-scan base-package="com.**.repository.datajpa"/>
         <jpa:repositories base-package="com.**.repository.datajpa"/>
