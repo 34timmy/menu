@@ -237,6 +237,19 @@
 
     <profiles>
         <profile>
+            <id>hsqldb</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.hsqldb</groupId>
+                    <artifactId>hsqldb</artifactId>
+                    <version>2.4.0</version>
+                </dependency>
+            </dependencies>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
             <id>postgres</id>
             <dependencies>
                 <dependency>
@@ -251,9 +264,7 @@
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+
         </profile>
     </profiles>
 

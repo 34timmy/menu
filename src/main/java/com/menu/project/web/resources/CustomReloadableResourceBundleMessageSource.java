@@ -15,8 +15,6 @@ public class CustomReloadableResourceBundleMessageSource extends ReloadableResou
     private static final Logger log = LoggerFactory.getLogger(CustomReloadableResourceBundleMessageSource.class);
 
 
-    public CustomReloadableResourceBundleMessageSource() {
-    }
 
     public Properties getAllMessages(Locale locale) {
         PropertiesHolder mergedProperties = getMergedProperties(locale);
