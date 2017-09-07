@@ -10,28 +10,28 @@
     <http pattern="/webjars/**" security="none"/>
     <http pattern="/i18n/**" security="none"/>
 
-    <http entry-point-ref="entryPoint">
-        <intercept-url pattern="/login" access="permitAll"/>
-        <intercept-url pattern="/register" access="permitAll"/>
+    <!--<http entry-point-ref="entryPoint">-->
+        <!--<intercept-url pattern="/login" access="permitAll"/>-->
+        <!--<intercept-url pattern="/register" access="permitAll"/>-->
 
-        <intercept-url pattern="/**/admin/**" access="hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/**" access="isAuthenticated()" />
-        <form-login login-page="/login"
-                    login-processing-url="/spring_security_check"
-                    authentication-failure-handler-ref="myUrlAuthenticationFailureHandler"
-                    authentication-success-handler-ref="myAuthenticationSuccessHandler"/>
+        <!--<intercept-url pattern="/**/admin/**" access="hasRole('ROLE_ADMIN')"/>-->
+        <!--<intercept-url pattern="/**" access="isAuthenticated()" />-->
+        <!--<form-login login-page="/login"-->
+                    <!--login-processing-url="/spring_security_check"-->
+                    <!--authentication-failure-handler-ref="myUrlAuthenticationFailureHandler"-->
+                    <!--authentication-success-handler-ref="myAuthenticationSuccessHandler"/>-->
 
-        <csrf disabled="true"/>
-        <access-denied-handler ref="customAccessDeniedHandler" />
-        <logout logout-url="/logout" success-handler-ref="myLogoutSuccessHandler" delete-cookies="JSESSIONID" invalidate-session="true"/>
-    </http>
+        <!--<csrf disabled="true"/>-->
+        <!--<access-denied-handler ref="customAccessDeniedHandler" />-->
+        <!--<logout logout-url="/logout" success-handler-ref="myLogoutSuccessHandler" delete-cookies="JSESSIONID" invalidate-session="true"/>-->
+    <!--</http>-->
 
 
-    <beans:bean id="entryPoint" class="com.menu.project.web.handler.CustomRestAuthenticationEntryPoint"/>
-    <beans:bean id="myAuthenticationSuccessHandler" class="com.menu.project.web.handler.CustomSavedRequestAwareAuthenticationSuccessHandler" />
-    <beans:bean id="myUrlAuthenticationFailureHandler" class="com.menu.project.web.handler.CustomUrlAuthenticationFailureHandler" />
-    <beans:bean id="myLogoutSuccessHandler" class="com.menu.project.web.handler.CustomLogoutSuccessHandler" />
-    <beans:bean id="customAccessDeniedHandler" class="com.menu.project.web.handler.CustomAccessDeniedHandler" />
+    <!--<beans:bean id="entryPoint" class="com.menu.project.web.handler.CustomRestAuthenticationEntryPoint"/>-->
+    <!--<beans:bean id="myAuthenticationSuccessHandler" class="com.menu.project.web.handler.CustomSavedRequestAwareAuthenticationSuccessHandler" />-->
+    <!--<beans:bean id="myUrlAuthenticationFailureHandler" class="com.menu.project.web.handler.CustomUrlAuthenticationFailureHandler" />-->
+    <!--<beans:bean id="myLogoutSuccessHandler" class="com.menu.project.web.handler.CustomLogoutSuccessHandler" />-->
+    <!--<beans:bean id="customAccessDeniedHandler" class="com.menu.project.web.handler.CustomAccessDeniedHandler" />-->
 
     <beans:bean class="com.menu.project.util.PasswordUtil" id="passwordEncoder" factory-method="getPasswordEncoder"/>
 

@@ -3,6 +3,8 @@ import {Injectable} from "@angular/core";
 import {I18Enum} from "../model/i18n.enum";
 import {Observable} from "rxjs/Rx";
 import {basePath, i18nPath} from "../shared/config";
+import 'rxjs/add/operator/toPromise';
+
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
  */
@@ -41,7 +43,8 @@ export class I18nService {
         this.activeLocale = locale;
 
         return new Promise((resolve, reject) => {
-            this.http.get(basePath + i18nPath + '/' + I18Enum[locale]).map(res => res.json()).catch((error: any): any => {
+            this.http.get(basePath + i18nPath + '/' + I18Enum[locale])
+                .map(res => res.json()).catch((error: any): any => {
                 reject(false);
                 return Observable.throw(error.json().error || 'Server error');
             }).subscribe((callResult: {string: string}) => {

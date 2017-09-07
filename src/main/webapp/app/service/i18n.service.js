@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var i18n_enum_1 = require("../model/i18n.enum");
 var Rx_1 = require("rxjs/Rx");
 var config_1 = require("../shared/config");
+require('rxjs/add/operator/toPromise');
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
  */
@@ -41,7 +42,8 @@ var I18nService = (function () {
         var _this = this;
         this.activeLocale = locale;
         return new Promise(function (resolve, reject) {
-            _this.http.get(config_1.basePath + config_1.i18nPath + '/' + i18n_enum_1.I18Enum[locale]).map(function (res) { return res.json(); }).catch(function (error) {
+            _this.http.get(config_1.basePath + config_1.i18nPath + '/' + i18n_enum_1.I18Enum[locale])
+                .map(function (res) { return res.json(); }).catch(function (error) {
                 reject(false);
                 return Rx_1.Observable.throw(error.json().error || 'Server error');
             }).subscribe(function (callResult) {

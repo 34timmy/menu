@@ -4,6 +4,7 @@ import com.menu.project.model.User;
 import com.menu.project.service.UserService;
 import com.menu.project.web.resources.CustomReloadableResourceBundleMessageSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -60,10 +61,10 @@ public class RootController {
 //        return "meals";
 //    }
 
-    @GetMapping("/register")
-    public String register() {
-        return "register";
-    }
+//    @GetMapping("/register")
+//    public String register() {
+//        return "register";
+//    }
 
 //    @GetMapping("/profile")
 //    public String profile() {

@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/admin/users/")
+@RequestMapping("/admin/users")
 public class AdminUserController {
 
     @Autowired
@@ -26,14 +26,14 @@ public class AdminUserController {
         this.userService = userService;
     }
 
-    @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public User update(User user, @PathVariable int id) {
 
         ValidationUtil.checkId(user, id);
         return userService.update(user);
     }
 
-    @DeleteMapping(value = "{id}")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable("id") int id) throws NotFoundException {
 
         userService.delete(id);
@@ -47,7 +47,7 @@ public class AdminUserController {
 
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public User get(@PathVariable("id") int id) throws NotFoundException {
         return userService.get(id);
     }
