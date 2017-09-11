@@ -1,7 +1,11 @@
 <div class="jumbotron">
     <div class="container">
+
+        <p><a class="btn btn-primary btn-lg" role="button" [routerLink]="['/restaurant-list']">{{'restaurants.title' |
+            i18nPipe}}</a></p>
         <div class="shadow">
             <h3>{{'users.title' | i18nPipe}}</h3>
+
 
             <div class="view-box">
                 <!--grid-->
@@ -30,12 +34,21 @@
                             {{user.registered | date:'y-MM-dd HH:mm'}}
                         </template>
                     </p-column>
-                    <p-column [style]="{'width':'120px'}">
+                    <p-column field="votetime" [sortable]="true">
                         <template pTemplate type="header">
-                            {{'common.delete' | i18nPipe}}
+                            {{'users.votetime' | i18nPipe}}
                         </template>
+                        <template pTemplate type="body" let-user="rowData" pInputText="Vote">
+                            {{user.votetime| date:'y-MM-dd HH:mm' }}
+                        </template>
+                    </p-column>
+                    <p-column [style]="{'width':'120px'}">
+                        <!--<template pTemplate type="header">-->
+                        <!--{{'common.delete' | i18nPipe}}-->
+                        <!--</template>-->
                         <template pTemplate type="body" let-user="rowData">
-                            <button pButton (click)="onDelete(user)" label="{{'common.delete' | i18nPipe}}"></button>
+                            <button pButton icon="fa-check" style="float:left" (click)="onDelete(user)"
+                                    label="{{'common.delete' | i18nPipe}}"></button>
                         </template>
                     </p-column>
                     <footer>

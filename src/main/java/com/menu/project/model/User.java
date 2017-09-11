@@ -47,7 +47,7 @@ public class User extends BaseEntity {
     private Set<Role> roles;
 
     @Column(name = "votetime", nullable = false)
-    @NotNull
+
     private Date votetime;
 
 

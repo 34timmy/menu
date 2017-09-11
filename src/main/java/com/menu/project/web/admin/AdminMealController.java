@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Timur on 21.08.2017.
  */
 @RestController
-@RequestMapping("/admin/meals/")
+@RequestMapping("/admin/meals")
 public class AdminMealController {
 
     @Autowired
@@ -25,14 +25,14 @@ public class AdminMealController {
         this.mealService = mealService;
     }
 
-    @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Meal update(Meal meal, @PathVariable int id) {
 
         ValidationUtil.checkId(meal, id);
         return mealService.update(meal, id);
     }
 
-    @DeleteMapping(value = "{id}")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable("id") int id, int restId) throws NotFoundException {
 
         mealService.delete(id, restId);
@@ -46,7 +46,7 @@ public class AdminMealController {
 
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Meal get(@PathVariable("id") int id, int restId) throws NotFoundException {
         return mealService.get(id, restId);
     }

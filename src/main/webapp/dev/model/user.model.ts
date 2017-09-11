@@ -1,6 +1,4 @@
-/**
- * Created by Dreval Viacheslav on 10.12.2016.
- */
+
 export interface UserModel {
 
     id: number;
@@ -11,4 +9,5 @@ export interface UserModel {
     roles: string[];
     caloriesPerDay: number;
     registered: string;
+    votetime: string;
 }

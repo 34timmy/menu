@@ -9,6 +9,7 @@ exports.mealPath = '/profile/meals';
 exports.profilePath = '/profile';
 exports.registerPath = '/register';
 exports.usersPath = '/admin/users';
+exports.restaurantPath = '/admin/restaurants';
 exports.i18nPath = '/i18n';
 exports.headers = new http_1.Headers({
     'Content-Type': 'application/json'

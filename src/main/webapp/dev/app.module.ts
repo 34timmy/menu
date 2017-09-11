@@ -10,12 +10,16 @@ import {DataTableModule} from "primeng/components/datatable/datatable";
 import {DatePipe} from "@angular/common";
 import {DateTimeTransformer} from "./shared/date-time.transformer";
 import {GrowlModule} from "primeng/components/growl/growl";
+import {ButtonModule} from 'primeng/primeng';
 import {CalendarModule} from "primeng/components/calendar/calendar";
 import {UserListComponent} from "./component/user/user-list.component";
 import {UserEditComponent} from "./component/user/user-edit.component";
 import {I18nPipe} from "./shared/pipe/i18n.pipe";
 import {UserService} from "./service/user.service";
 import {ProfileService} from "./service/profile.service";
+import {RestaurantComponent} from "./component/restaurant/restaurant.component";
+import {RestaurantEditComponent} from "./component/restaurant/restaurant-edit.component";
+import {RestaurantService} from "./service/restaurant.service";
 
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
@@ -23,14 +27,15 @@ import {ProfileService} from "./service/profile.service";
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, routing, CalendarModule, DataTableModule, GrowlModule],
+    imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, routing, CalendarModule, DataTableModule, GrowlModule, ButtonModule],
     declarations: [AppComponent,
         UserListComponent,
         UserEditComponent,
+        RestaurantComponent, RestaurantEditComponent,
         I18nPipe
     ],
     bootstrap: [AppComponent],
-    providers: [UserService, ProfileService,
+    providers: [UserService, ProfileService, RestaurantService,
         I18nService, DateTimeTransformer, DatePipe,
         {
             provide: APP_INITIALIZER,
@@ -42,7 +47,7 @@ import {ProfileService} from "./service/profile.service";
         }
     ]
 })
-export class TopJavaModule {
+export class Menu {
 
 }
 

@@ -4,5 +4,5 @@ var app_module_1 = require("./app.module");
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
  */
-platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.TopJavaModule);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.Menu);
 //# sourceMappingURL=boot.js.map

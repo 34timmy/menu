@@ -2,6 +2,7 @@ package com.menu.project.service;
 
 import com.menu.project.model.User;
 import com.menu.project.repository.UserRepository;
+import com.menu.project.util.PasswordUtil;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -27,16 +28,23 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    @CacheEvict(value = "users", allEntries = true)
+    @Transactional
     public User create(User user) {
+        user.setId(null);
         return userRepository.save(user);
     }
 
     @CacheEvict(value = "users", allEntries = true)
     @Transactional
     public User update(User user) {
+
+        user.setPassword(PasswordUtil.encode(user.getPassword()));
+        user.setEmail(user.getEmail().toLowerCase());
         return userRepository.save(user);
     }
 
+    @CacheEvict(value = "users", allEntries = true)
     @Transactional
     public void delete(int id) throws NotFoundException {
         userRepository.delete(id);

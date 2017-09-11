@@ -1,5 +1,6 @@
 package com.menu.project.web.admin;
 
+import com.menu.project.model.Role;
 import com.menu.project.model.User;
 import com.menu.project.service.UserService;
 import com.menu.project.util.ValidationUtil;
@@ -8,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Timur on 13.08.2017.
@@ -27,8 +31,9 @@ public class AdminUserController {
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public User update(User user, @PathVariable int id) {
-
+    public User update(@Valid @RequestBody User user, @PathVariable int id) {
+        user.setRoles(user.getRoles());
+        user.setId(id);
         ValidationUtil.checkId(user, id);
         return userService.update(user);
     }
@@ -41,7 +46,8 @@ public class AdminUserController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User create(User user) {
+    public User create(@Valid @RequestBody User user) {
+        user.setRoles(Collections.singleton(Role.ROLE_USER));
 
         return userService.create(user);
 
@@ -60,6 +66,11 @@ public class AdminUserController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getAll() {
         return userService.getAll();
+    }
+
+    @PutMapping("/{id}/{enabled}")
+    public void enable(@PathVariable("id") int id, @PathVariable("enabled") boolean enabled) throws NotFoundException {
+        userService.enable(id,enabled);
     }
 
 }

@@ -1,0 +1,39 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="shadow">
+            <h3>{{'restaurants.title' | i18nPipe}}</h3>
+            <div class="view-box">
+                <!--grid-->
+                <p-dataTable [value]="restaurantsHolder | async" (onRowSelect)="onEdit($event)" selectionMode="single"
+                             [paginator]="true" rows="10" [responsive]="true">
+                    <p-column field="name" [sortable]="true" header="{{'restaurants.name' | i18nPipe}}"
+                              [filter]="true"></p-column>
+                    <p-column field="address" [sortable]="true" header="{{'restaurants.address' | i18nPipe}}"
+                              [filter]="true"></p-column>
+                    <p-column field="site" [sortable]="true" header="{{'restaurants.site' | i18nPipe}}"
+                              [filter]="true"></p-column>
+                    <p-column field="mark" [sortable]="true" header="{{'restaurants.mark' | i18nPipe}}"
+                              [filter]="true"></p-column>
+                    <p-column field="votequantity" [sortable]="true" header="{{'restaurants.votequantity' | i18nPipe}}"
+                              [filter]="true"></p-column>
+                    <p-column [style]="{'width':'120px'}">
+                        <!--<template pTemplate type="header">-->
+                        <!--{{'common.delete' | i18nPipe}}-->
+                        <!--</template>-->
+                        <template pTemplate type="body" let-restaurant="rowData">
+                            <button pButton icon="fa-check" style="float:left" (click)="onDelete(restaurant)"
+                                    label="{{'common.delete' | i18nPipe}}"></button>
+                        </template>
+                    </p-column>
+                    <footer>
+                        <div class="ui-helper-clearfix" style="width:100%">
+                            <button type="button" pButton icon="fa-plus" style="float:left"
+                                    (click)="showCreateModal()" label="{{'restaurants.add' | i18nPipe}}"></button>
+                        </div>
+                    </footer>
+                </p-dataTable>
+            </div>
+        </div>
+    </div>
+</div>
+<restaurant-edit (onSaveEvent)="onSave($event)"></restaurant-edit>

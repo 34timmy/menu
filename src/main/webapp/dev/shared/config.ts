@@ -9,6 +9,7 @@ export const mealPath: string = '/profile/meals';
 export const profilePath: string = '/profile';
 export const registerPath: string = '/register';
 export const usersPath: string = '/admin/users';
+export const restaurantPath: string = '/admin/restaurants';
 export const i18nPath: string = '/i18n';
 
 
