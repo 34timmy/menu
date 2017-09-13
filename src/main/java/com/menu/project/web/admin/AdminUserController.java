@@ -68,7 +68,7 @@ public class AdminUserController {
         return userService.getAll();
     }
 
-    @PutMapping("/{id}/{enabled}")
+    @PatchMapping("/{id}/{enabled}")
     public void enable(@PathVariable("id") int id, @PathVariable("enabled") boolean enabled) throws NotFoundException {
         userService.enable(id,enabled);
     }

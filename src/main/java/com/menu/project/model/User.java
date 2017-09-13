@@ -46,8 +46,8 @@ public class User extends BaseEntity {
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
+    //TODO some annotations
     @Column(name = "votetime", nullable = false)
-
     private Date votetime;
 
 
