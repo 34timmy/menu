@@ -30,17 +30,17 @@ export class RestaurantComponent
         this.restaurantsHolder = this.restaurantService.getRestaurants();
     }
 
-    showCreateModal() {
+    showRestCreateModal() {
         this.restaurantEditChild.resetForm();
-        // this.restaurantEditChild.showToggle = true;
+        this.restaurantEditChild.showToggle = true;
     }
 
     onEdit(restaurant) {
-        this.showCreateModal();
+        this.showRestCreateModal();
         this.restaurantEditChild.fillRestaurantForm(restaurant.data);
     }
 
-    onSave(restaurant: RestaurantModel) {
+    onRestSave(restaurant: RestaurantModel) {
         this.restaurantService.saveRestaurant(restaurant)
             .subscribe(
                 res => {

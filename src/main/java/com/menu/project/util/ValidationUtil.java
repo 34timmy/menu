@@ -1,6 +1,8 @@
 package com.menu.project.util;
 
 import com.menu.project.model.BaseEntity;
+import com.menu.project.model.Restaurant;
+import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 
 /**
  * Created by Timur on 16.08.2017.
@@ -15,5 +17,15 @@ public class ValidationUtil {
         }
     }
 
-  //TODO методы для проверки id у delete, create...
+    public static Restaurant validateRestaurant(Restaurant restaurantFromDB, Restaurant restaurant) {
+        if (! restaurant.getName().isEmpty()) {
+            restaurantFromDB.setName(restaurant.getName());
+        }else   {
+            throw new ValueException("Name can't be empty");
+        }
+        restaurantFromDB.setAddress(restaurant.getAddress());
+        restaurantFromDB.setSite(restaurant.getSite());
+        return restaurantFromDB;
+    }
+    //TODO методы для проверки id у delete, create...
 }

@@ -37,10 +37,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @CacheEvict(value = "users", allEntries = true)
     @Transactional
-    public User update(User user) {
-
-        user.setPassword(PasswordUtil.encode(user.getPassword()));
-        user.setEmail(user.getEmail().toLowerCase());
+    public User update(User user) throws NotFoundException {
+        User userFromDB=get(user.getId());
+        userFromDB.setPassword(PasswordUtil.encode(user.getPassword()));
+        userFromDB.setEmail(user.getEmail().toLowerCase());
         return userRepository.save(user);
     }
 

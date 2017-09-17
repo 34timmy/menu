@@ -4,9 +4,7 @@ import {UserModel} from "../model/user.model";
 import {Injectable} from "@angular/core";
 import {DateTimeTransformer} from "../shared/date-time.transformer";
 import {reqOptions, profilePath, basePath, reqOptionsJson} from "../shared/config";
-/**
- * Created by Dreval Viacheslav on 10.12.2016.
- */
+
 
 @Injectable()
 export class ProfileService {

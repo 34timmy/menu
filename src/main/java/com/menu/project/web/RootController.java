@@ -34,49 +34,4 @@ public class RootController {
         return reloadableResourceBundleMessageSource.getAllMessages(new Locale(locale));
     }
 
-//    @GetMapping("/")
-//    public String root() {
-//        return "redirect:users";
-//    }
-//
-//    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
-//
-//    @GetMapping("/users")
-//    public String users(Model model) {
-//        model.addAttribute("users", userService.getAll());
-//        return "users";
-//    }
-//
-//    @GetMapping("/restaurants")
-//    public String restaurants(Model model) {
-//        model.addAttribute("restaurants", restaurantService.getAll());
-//        return "restaurants";
-//    }
-//
-//    @GetMapping("/meals")
-//    public String meals(Model model) {
-//        return "meals";
-//    }
-
-//    @GetMapping("/register")
-//    public String register() {
-//        return "register";
-//    }
-
-//    @GetMapping("/profile")
-//    public String profile() {
-//        return "profile";
-//    }
-//
-//    @PostMapping("/register")
-//    public void saveRegister(Model model) {
-//        model.addAttribute("user", new User());
-//        model.addAttribute("register", true);
-//        //TODO Modelmap , Session status, @Valid
-//    }
-
-
 }

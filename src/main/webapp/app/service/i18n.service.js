@@ -14,9 +14,6 @@ var i18n_enum_1 = require("../model/i18n.enum");
 var Rx_1 = require("rxjs/Rx");
 var config_1 = require("../shared/config");
 require('rxjs/add/operator/toPromise');
-/**
- * Created by Dreval Viacheslav on 10.12.2016.
- */
 var I18nService = (function () {
     function I18nService(http) {
         this.http = http;

@@ -6,11 +6,10 @@ import {RestaurantModel} from "../../model/restaurant.model";
     templateUrl: 'templates/restaurant/restaurant-edit.html',
     selector: 'restaurant-edit'
 })
-export class RestaurantEditComponent implements OnInit{
-
+export class RestaurantEditComponent implements OnInit {
+    showToggle: boolean = false;
     restaurantForm: FormGroup;
 
-    // showToggle: boolean = false;
 
     @Output()
     onSaveEvent: EventEmitter<RestaurantModel> = new EventEmitter<RestaurantModel>();
@@ -24,7 +23,7 @@ export class RestaurantEditComponent implements OnInit{
                 id: [''],
                 name: ['', Validators.required],
                 address: ['', Validators.required],
-                site: ['', Validators.required]
+                site: ['']
             }
         )
     }
@@ -38,15 +37,15 @@ export class RestaurantEditComponent implements OnInit{
         });
     }
 
-    onSave() {
+    onRestSave() {
         this.onSaveEvent.emit(this.restaurantForm.value);
         this.restaurantForm.reset();
-        // this.closeModal();
+        this.closeModal();
     }
 
-    // closeModal() {
-    //     this.showToggle = false;
-    // }
+    closeModal() {
+        this.showToggle = false;
+    }
 
     resetForm() {
         this.restaurantForm.reset();

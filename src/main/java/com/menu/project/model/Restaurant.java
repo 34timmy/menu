@@ -23,11 +23,11 @@ public class Restaurant extends BaseEntity {
     private String site;
 
     @Column(name = "mark", nullable = false)
-    @NotNull
+//    @NotNull
     private Integer mark;
 
     @Column(name = "votequantity", nullable = false)
-    @NotNull
+//    @NotNull
     private Integer votequatity;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")

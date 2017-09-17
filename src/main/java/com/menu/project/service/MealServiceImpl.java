@@ -4,6 +4,7 @@ import com.menu.project.model.Meal;
 import com.menu.project.repository.MealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,10 +21,12 @@ public class MealServiceImpl implements MealService {
         this.mealRepository = mealRepository;
     }
 
+    @Transactional
     public Meal create(Meal meal, int restId) {
         return mealRepository.save(meal, restId);
     }
 
+    @Transactional
     public Meal update(Meal meal, int restId) {
         return mealRepository.save(meal, restId);
     }
@@ -36,6 +39,7 @@ public class MealServiceImpl implements MealService {
         return mealRepository.getAll(restId);
     }
 
+    @Transactional
     public void delete(Integer id, int restId) {
         mealRepository.delete(id, restId);
 

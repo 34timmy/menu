@@ -12,9 +12,6 @@ var http_1 = require("@angular/http");
 var core_1 = require("@angular/core");
 var date_time_transformer_1 = require("../shared/date-time.transformer");
 var config_1 = require("../shared/config");
-/**
- * Created by Dreval Viacheslav on 10.12.2016.
- */
 var ProfileService = (function () {
     function ProfileService(http, dateTimeTransformer) {
         this.http = http;

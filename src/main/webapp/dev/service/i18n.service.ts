@@ -5,9 +5,6 @@ import {Observable} from "rxjs/Rx";
 import {basePath, i18nPath} from "../shared/config";
 import 'rxjs/add/operator/toPromise';
 
-/**
- * Created by Dreval Viacheslav on 10.12.2016.
- */
 
 @Injectable()
 export class I18nService {

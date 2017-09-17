@@ -2,8 +2,10 @@ package com.menu.project.service;
 
 import com.menu.project.model.Restaurant;
 import com.menu.project.repository.RestaurantRepository;
+import com.menu.project.util.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,11 +22,15 @@ public class RestaurantServiceImpl implements RestaurantService {
         this.restaurantRepository = restaurantRepository;
     }
 
-
+    @Transactional
     public Restaurant update(Restaurant restaurant) {
-        return restaurantRepository.save(restaurant);
+
+        Restaurant restaurantFromDB=get(restaurant.getId());
+        restaurantFromDB = ValidationUtil.validateRestaurant(restaurantFromDB,restaurant);
+        return restaurantRepository.save(restaurantFromDB);
     }
 
+    @Transactional
     public Restaurant create(Restaurant restaurant) {
         return restaurantRepository.save(restaurant);
     }
@@ -37,6 +43,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         return restaurantRepository.getAll();
     }
 
+    @Transactional
     public void delete(Integer id) {
         restaurantRepository.delete(id);
     }

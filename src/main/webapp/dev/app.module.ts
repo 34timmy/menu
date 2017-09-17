@@ -17,7 +17,7 @@ import {UserEditComponent} from "./component/user/user-edit.component";
 import {I18nPipe} from "./shared/pipe/i18n.pipe";
 import {UserService} from "./service/user.service";
 import {ProfileService} from "./service/profile.service";
-import {RestaurantComponent} from "./component/restaurant/restaurant.component";
+import {RestaurantComponent} from "./component/restaurant/restaurant-list.component";
 import {RestaurantEditComponent} from "./component/restaurant/restaurant-edit.component";
 import {RestaurantService} from "./service/restaurant.service";
 

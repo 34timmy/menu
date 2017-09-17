@@ -27,7 +27,7 @@ var user_edit_component_1 = require("./component/user/user-edit.component");
 var i18n_pipe_1 = require("./shared/pipe/i18n.pipe");
 var user_service_1 = require("./service/user.service");
 var profile_service_1 = require("./service/profile.service");
-var restaurant_component_1 = require("./component/restaurant/restaurant.component");
+var restaurant_list_component_1 = require("./component/restaurant/restaurant-list.component");
 var restaurant_edit_component_1 = require("./component/restaurant/restaurant-edit.component");
 var restaurant_service_1 = require("./service/restaurant.service");
 /**
@@ -42,7 +42,7 @@ var Menu = (function () {
             declarations: [app_component_1.AppComponent,
                 user_list_component_1.UserListComponent,
                 user_edit_component_1.UserEditComponent,
-                restaurant_component_1.RestaurantComponent, restaurant_edit_component_1.RestaurantEditComponent,
+                restaurant_list_component_1.RestaurantComponent, restaurant_edit_component_1.RestaurantEditComponent,
                 i18n_pipe_1.I18nPipe
             ],
             bootstrap: [app_component_1.AppComponent],

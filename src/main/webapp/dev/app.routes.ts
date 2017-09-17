@@ -2,7 +2,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {UserListComponent} from "./component/user/user-list.component";
 import {ModuleWithProviders} from "@angular/core";
 import {RestaurantModel} from "./model/restaurant.model";
-import {RestaurantComponent} from "./component/restaurant/restaurant.component";
+import {RestaurantComponent} from "./component/restaurant/restaurant-list.component";
 
 /**
  * Created by Dreval Viacheslav on 10.12.2016.

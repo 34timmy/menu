@@ -31,9 +31,7 @@ public class AdminUserController {
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public User update(@Valid @RequestBody User user, @PathVariable int id) {
-        user.setRoles(user.getRoles());
-        user.setId(id);
+    public User update(@Valid @RequestBody User user, @PathVariable int id) throws NotFoundException {
         ValidationUtil.checkId(user, id);
         return userService.update(user);
     }
