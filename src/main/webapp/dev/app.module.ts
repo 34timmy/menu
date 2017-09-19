@@ -20,6 +20,9 @@ import {ProfileService} from "./service/profile.service";
 import {RestaurantComponent} from "./component/restaurant/restaurant-list.component";
 import {RestaurantEditComponent} from "./component/restaurant/restaurant-edit.component";
 import {RestaurantService} from "./service/restaurant.service";
+import {MealListComponent} from "./component/meal/meal-list.component";
+import {MealEditComponent} from "./component/meal/meal-edit.component";
+import {MealService} from "./service/meal.service";
 
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
@@ -31,11 +34,11 @@ import {RestaurantService} from "./service/restaurant.service";
     declarations: [AppComponent,
         UserListComponent,
         UserEditComponent,
-        RestaurantComponent, RestaurantEditComponent,
+        RestaurantComponent, RestaurantEditComponent,MealListComponent,MealEditComponent,
         I18nPipe
     ],
     bootstrap: [AppComponent],
-    providers: [UserService, ProfileService, RestaurantService,
+    providers: [UserService, ProfileService, RestaurantService,MealService,
         I18nService, DateTimeTransformer, DatePipe,
         {
             provide: APP_INITIALIZER,

@@ -35,7 +35,7 @@ export class RestaurantComponent
         this.restaurantEditChild.showToggle = true;
     }
 
-    onEdit(restaurant) {
+    onRestEdit(restaurant) {
         this.showRestCreateModal();
         this.restaurantEditChild.fillRestaurantForm(restaurant.data);
     }
@@ -50,7 +50,7 @@ export class RestaurantComponent
     }
 
     onDelete(restaurant: RestaurantModel) {
-        this.restaurantService.delete(restaurant).subscribe(
+        this.restaurantService.deleteRest(restaurant).subscribe(
             res => {
                 this.reloadRestaurants();
             }

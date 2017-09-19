@@ -13,16 +13,12 @@ export class RestaurantService
                 private dateTimeTransformer: DateTimeTransformer) {
     }
 
-    registerRestaurant(value: RestaurantModel): Observable<Response> {
-        return this.http.post(basePath + registerPath, JSON.stringify(value), reqOptionsJson)
-    }
-
 
     getRestaurants(): Observable<RestaurantModel[]> {
         return this.http.get(basePath + restaurantPath, reqOptions).map(res => res.json());
     }
 
-    delete(restaurant: RestaurantModel): Observable<Response> {
+    deleteRest(restaurant: RestaurantModel): Observable<Response> {
         return this.http.delete(basePath + restaurantPath + '/' + restaurant.id, reqOptions);
     }
 

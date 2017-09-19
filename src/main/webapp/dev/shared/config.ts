@@ -5,11 +5,11 @@ import {RequestOptions, Headers} from "@angular/http";
 
 export const basePath: string = '/menu';
 export const loginPath: string = "/spring_security_check";
-export const mealPath: string = '/profile/meals';
+export const mealPath: string = '/meals';
 export const profilePath: string = '/profile';
 export const registerPath: string = '/register';
 export const usersPath: string = '/admin/users';
-export const restaurantPath: string = '/admin/restaurants';
+export const restaurantPath: string = '/profile/restaurants';
 export const i18nPath: string = '/i18n';
 
 

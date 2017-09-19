@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Timur on 21.08.2017.
  */
 @RestController
-@RequestMapping("/admin/restaurants")
+@RequestMapping("/profile/restaurants")
 public class AdminRestaurantController {
 
     @Autowired

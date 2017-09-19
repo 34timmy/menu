@@ -1,10 +1,11 @@
 <div class="jumbotron">
     <div class="container">
+
         <div class="shadow">
             <h3>{{'restaurants.title' | i18nPipe}}</h3>
             <div class="view-box">
                 <!--grid-->
-                <p-dataTable [value]="restaurantsHolder | async" (onRowSelect)="onEdit($event)" selectionMode="single"
+                <p-dataTable [value]="restaurantsHolder | async" (onRowSelect)="onRestEdit($event)" selectionMode="single"
                              [paginator]="true" rows="10" [responsive]="true">
                     <p-column field="name" [sortable]="true" header="{{'restaurants.name' | i18nPipe}}"
                               [filter]="true"></p-column>
@@ -24,6 +25,15 @@
                             <button pButton icon="fa-check" style="float:left" (click)="onDelete(restaurant)"
                                     label="{{'common.delete' | i18nPipe}}"></button>
                         </template>
+                    </p-column>
+                    <p-column [style]="{'width':'120px'}">
+                        <!--<template pTemplate type="header">-->
+                        <!--{{'common.delete' | i18nPipe}}-->
+                        <!--</template>-->
+                        <meal-list [restaurant]="restaurant"><template pTemplate type="body" let-restaurant="rowData">
+                            <button pButton icon="fa-check" style="float:left" [routerLink]="['/meal-list']"
+                                    label="{{'common.delete' | i18nPipe}}"></button>
+                        </template></meal-list>
                     </p-column>
                     <footer>
                         <div class="ui-helper-clearfix" style="width:100%">
