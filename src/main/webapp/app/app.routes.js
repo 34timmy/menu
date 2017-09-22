@@ -2,6 +2,7 @@
 var router_1 = require("@angular/router");
 var user_list_component_1 = require("./component/user/user-list.component");
 var restaurant_list_component_1 = require("./component/restaurant/restaurant-list.component");
+var meal_list_component_1 = require("./component/meal/meal-list.component");
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
  */
@@ -18,6 +19,10 @@ var appRoutes = [
     {
         path: "restaurant-list",
         component: restaurant_list_component_1.RestaurantComponent,
+    },
+    {
+        path: "meal-list",
+        component: meal_list_component_1.MealListComponent,
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes, { useHash: true });

@@ -37,7 +37,7 @@ CREATE TABLE restaurant (
 );
 CREATE TABLE meals (
   id            INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-  description   TEXT    NOT NULL,
+  name   TEXT    NOT NULL,
   price         INT     NOT NULL,
   restaurant_id INTEGER NOT NULL,
   FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE

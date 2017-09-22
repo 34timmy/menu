@@ -30,6 +30,9 @@ var profile_service_1 = require("./service/profile.service");
 var restaurant_list_component_1 = require("./component/restaurant/restaurant-list.component");
 var restaurant_edit_component_1 = require("./component/restaurant/restaurant-edit.component");
 var restaurant_service_1 = require("./service/restaurant.service");
+var meal_list_component_1 = require("./component/meal/meal-list.component");
+var meal_edit_component_1 = require("./component/meal/meal-edit.component");
+var meal_service_1 = require("./service/meal.service");
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
  */
@@ -42,11 +45,11 @@ var Menu = (function () {
             declarations: [app_component_1.AppComponent,
                 user_list_component_1.UserListComponent,
                 user_edit_component_1.UserEditComponent,
-                restaurant_list_component_1.RestaurantComponent, restaurant_edit_component_1.RestaurantEditComponent,
+                restaurant_list_component_1.RestaurantComponent, restaurant_edit_component_1.RestaurantEditComponent, meal_list_component_1.MealListComponent, meal_edit_component_1.MealEditComponent,
                 i18n_pipe_1.I18nPipe
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [user_service_1.UserService, profile_service_1.ProfileService, restaurant_service_1.RestaurantService,
+            providers: [user_service_1.UserService, profile_service_1.ProfileService, restaurant_service_1.RestaurantService, meal_service_1.MealService,
                 i18n_service_1.I18nService, date_time_transformer_1.DateTimeTransformer, common_1.DatePipe,
                 {
                     provide: core_1.APP_INITIALIZER,

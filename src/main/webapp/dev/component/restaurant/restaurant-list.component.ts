@@ -26,6 +26,10 @@ export class RestaurantComponent
         this.reloadRestaurants();
     }
 
+    sendIdRModel(restaurant : RestaurantModel){
+        this.restaurantService.sendIdModel(restaurant.id);
+    }
+
     private reloadRestaurants() {
         this.restaurantsHolder = this.restaurantService.getRestaurants();
     }
@@ -49,7 +53,7 @@ export class RestaurantComponent
             );
     }
 
-    onDelete(restaurant: RestaurantModel) {
+    onRestDelete(restaurant: RestaurantModel) {
         this.restaurantService.deleteRest(restaurant).subscribe(
             res => {
                 this.reloadRestaurants();

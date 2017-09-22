@@ -17,7 +17,6 @@ import javax.validation.constraints.NotNull;
 public class Meal extends BaseEntity {
 
     @Column(name = "price", nullable = false)
-    @NotBlank
     @Range(min = 0)
     private Double price;
 

@@ -34,15 +34,15 @@ export class MealEditComponent
         )
     }
 
-    fillRestaurantForm(meal: MealModel) {
+    fillMealForm(meal: MealModel) {
         this.mealForm.patchValue({
             id: meal.id,
             name: meal.name,
-            price: meal.price
+            price: meal.price,
         });
     }
 
-    onRestSave() {
+    onMealSave() {
         this.onSaveEvent.emit(this.mealForm.value);
         this.mealForm.reset();
         this.closeModal();

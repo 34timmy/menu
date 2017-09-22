@@ -6,13 +6,21 @@ import {reqOptions, basePath, reqOptionsJson, registerPath, restaurantPath} from
 import {RestaurantModel} from "../model/restaurant.model";
 
 @Injectable()
-export class RestaurantService
-{
+export class RestaurantService {
+    restaurantId: number;
 
     constructor(private http: Http,
                 private dateTimeTransformer: DateTimeTransformer) {
     }
 
+
+    sendIdModel(restaurant:number) {
+        this.restaurantId = restaurant;
+    }
+
+    getIdRModel(): number {
+        return this.restaurantId;
+    }
 
     getRestaurants(): Observable<RestaurantModel[]> {
         return this.http.get(basePath + restaurantPath, reqOptions).map(res => res.json());

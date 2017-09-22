@@ -1,43 +1,47 @@
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
-import {basePath, mealPath, reqOptions, restaurantPath} from "../shared/config";
+import {basePath, mealPath, reqOptions, reqOptionsJson, restaurantPath} from "../shared/config";
 import {Observable} from "rxjs/Observable";
 import {MealModel} from "../model/meal.model";
 import {RestaurantModel} from "../model/restaurant.model";
+import {DateTimeTransformer} from "../shared/date-time.transformer";
 
 @Injectable()
 export class MealService {
 
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private dateTimeTransformer: DateTimeTransformer) {
     }
 
 
-    getMeals(restaurant: RestaurantModel): Observable<MealModel[]> {
-        return this.http.get(basePath + restaurantPath + '/' + restaurant.id + mealPath, reqOptions).map(res => res.json())
+    getMeals(restaurantId: number): Observable<MealModel[]> {
+        return this.http.get(basePath + restaurantPath + '/' + restaurantId + mealPath, reqOptions).map(res => res.json())
     }
 
-    deleteMeal(restaurant:RestaurantModel, meal: MealModel): Observable<Response> {
-        return this.http.delete(basePath + restaurantPath + '/' + restaurant.id + mealPath + '/' + meal.id, reqOptions)
+    deleteMeal(restaurantId:number, meal: MealModel): Observable<Response> {
+        return this.http.delete(basePath + restaurantPath + '/' + restaurantId + mealPath + '/' + meal.id, reqOptions)
     }
 
-    saveMeal(restaurant:RestaurantModel, meal: MealModel): Observable<Response> {
+    saveMeal(restaurantId:number, meal: MealModel): Observable<Response> {
+        meal.restaurant=restaurantId;
+
         if (meal.id) {
 
-            return this.updateMeal(restaurant, meal);
+            return this.updateMeal(restaurantId, meal);
         }
         else {
-            return this.createMeal(restaurant,meal);
+            return this.createMeal(restaurantId,meal);
         }
     }
 
 
-    private updateMeal(restaurant:RestaurantModel ,meal: MealModel): Observable<Response> {
-        return this.http.put(basePath + restaurantPath + '/' + restaurant.id + mealPath + '/' + meal.id, JSON.stringify(meal), reqOptions)
+    private updateMeal(restaurantId:number ,meal: MealModel): Observable<Response> {
+
+        return this.http.put(basePath + restaurantPath + '/' + restaurantId + mealPath + '/' + meal.id, JSON.stringify(meal), reqOptionsJson)
     }
 
-    private createMeal(restaurant:RestaurantModel, meal: MealModel): Observable<Response> {
-        return this.http.post(basePath + restaurantPath + '/' + restaurant.id + mealPath + '/' + meal.id, JSON.stringify(meal), reqOptions);
+    private createMeal(restaurantId:number, meal: MealModel): Observable<Response> {
+        return this.http.post(basePath + restaurantPath + '/' + restaurantId + mealPath + '/' + meal.id, JSON.stringify(meal), reqOptionsJson);
     }
 
 }

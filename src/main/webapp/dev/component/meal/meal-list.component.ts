@@ -5,6 +5,7 @@ import {MealEditComponent} from "./meal-edit.component";
 import {I18nService} from "../../service/i18n.service";
 import {MealService} from "../../service/meal.service";
 import {RestaurantModel} from "../../model/restaurant.model";
+import {RestaurantService} from "../../service/restaurant.service";
 
 @Component(
     {
@@ -15,18 +16,25 @@ import {RestaurantModel} from "../../model/restaurant.model";
 
 export class MealListComponent {
 
-    @Input()  restaurant: RestaurantModel;
+    restaurant: number;
     mealsHolder: Observable<MealModel[]>;
     @ViewChild(MealEditComponent)
     private mealEditChild: MealEditComponent;
 
     constructor(private mealService: MealService,
-                private i18Service: I18nService) {
+                private i18Service: I18nService,private restService:RestaurantService) {
     }
 
 
     ngOnInit(): void {
+        this.setRModel();
         this.reloadMeals();
+    }
+
+
+    @Input()
+    setRModel(){
+        this.restaurant = this.restService.getIdRModel();
     }
 
     private reloadMeals() {
@@ -52,8 +60,8 @@ export class MealListComponent {
             );
     }
 
-    onMealDelete(restaurant: RestaurantModel, meal: MealModel) {
-        this.mealService.deleteMeal(restaurant, meal).subscribe(
+    onMealDelete( meal: MealModel) {
+        this.mealService.deleteMeal(this.restaurant, meal).subscribe(
             res => {
                 this.reloadMeals();
             }

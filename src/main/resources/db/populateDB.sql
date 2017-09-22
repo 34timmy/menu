@@ -22,7 +22,7 @@ INSERT INTO restaurant (name, address) VALUES
   ('Baker', 'Spb str.'),
   ('Cafe', 'LA str.');
 
-INSERT INTO meals (description, price, restaurant_id) VALUES
+INSERT INTO meals (name, price, restaurant_id) VALUES
   ('Завтрак', 500, 3),
   ('Молоко', 100, 3),
   ('Хлеб', 50, 4),
