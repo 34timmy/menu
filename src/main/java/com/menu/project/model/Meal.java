@@ -23,7 +23,7 @@ public class Meal extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @NotNull
+//    @NotNull
     private Restaurant restaurant;
 
     public Meal() {

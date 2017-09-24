@@ -30,7 +30,7 @@ public class AdminMealController {
     public Meal update(@Valid @RequestBody Meal meal, @PathVariable int id,@PathVariable("restId") int restId) {
 
         ValidationUtil.checkId(meal, id);
-        return mealService.update(meal, id);
+        return mealService.update(meal, restId);
     }
 
     @DeleteMapping(value = "/{restId}/meals/{id}")

@@ -23,7 +23,7 @@ export class MealService {
     }
 
     saveMeal(restaurantId:number, meal: MealModel): Observable<Response> {
-        meal.restaurant=restaurantId;
+        // meal.restaurant=restaurantId;
 
         if (meal.id) {
 
@@ -41,7 +41,7 @@ export class MealService {
     }
 
     private createMeal(restaurantId:number, meal: MealModel): Observable<Response> {
-        return this.http.post(basePath + restaurantPath + '/' + restaurantId + mealPath + '/' + meal.id, JSON.stringify(meal), reqOptionsJson);
+        return this.http.post(basePath + restaurantPath + '/' + restaurantId + mealPath, JSON.stringify(meal), reqOptionsJson);
     }
 
 }

@@ -30,7 +30,7 @@ public class Restaurant extends BaseEntity {
 //    @NotNull
     private Integer votequatity;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")
+    @OneToMany(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY,mappedBy = "restaurant")
     protected List<Meal> meals;
 
     public Restaurant() {
