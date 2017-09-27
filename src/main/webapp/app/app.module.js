@@ -33,6 +33,13 @@ var restaurant_service_1 = require("./service/restaurant.service");
 var meal_list_component_1 = require("./component/meal/meal-list.component");
 var meal_edit_component_1 = require("./component/meal/meal-edit.component");
 var meal_service_1 = require("./service/meal.service");
+var register_component_1 = require("./component/auth/register.component");
+var auth_component_1 = require("./component/auth/auth.component");
+var header_component_1 = require("./component/auth/header.component");
+var auth_service_1 = require("./service/auth.service");
+var exception_service_1 = require("./service/exception.service");
+var auth_activate_guard_1 = require("./shared/auth.activate.guard");
+var profile_component_1 = require("./component/user/profile.component");
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
  */
@@ -46,11 +53,11 @@ var Menu = (function () {
                 user_list_component_1.UserListComponent,
                 user_edit_component_1.UserEditComponent,
                 restaurant_list_component_1.RestaurantComponent, restaurant_edit_component_1.RestaurantEditComponent, meal_list_component_1.MealListComponent, meal_edit_component_1.MealEditComponent,
-                i18n_pipe_1.I18nPipe
+                i18n_pipe_1.I18nPipe, register_component_1.RegisterComponent, header_component_1.HeaderComponent, auth_component_1.AuthComponent, profile_component_1.ProfileComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [user_service_1.UserService, profile_service_1.ProfileService, restaurant_service_1.RestaurantService, meal_service_1.MealService,
-                i18n_service_1.I18nService, date_time_transformer_1.DateTimeTransformer, common_1.DatePipe,
+            providers: [user_service_1.UserService, profile_service_1.ProfileService, restaurant_service_1.RestaurantService, meal_service_1.MealService, auth_service_1.AuthService, exception_service_1.ExceptionService,
+                i18n_service_1.I18nService, date_time_transformer_1.DateTimeTransformer, common_1.DatePipe, auth_activate_guard_1.AuthActivateGuard,
                 {
                     provide: core_1.APP_INITIALIZER,
                     // useFactory: (i18NService: I18nService) => () => i18NService.initMessages(I18Enum.ru),

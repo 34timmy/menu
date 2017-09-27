@@ -23,6 +23,13 @@ import {RestaurantService} from "./service/restaurant.service";
 import {MealListComponent} from "./component/meal/meal-list.component";
 import {MealEditComponent} from "./component/meal/meal-edit.component";
 import {MealService} from "./service/meal.service";
+import {RegisterComponent} from "./component/auth/register.component";
+import {AuthComponent} from "./component/auth/auth.component";
+import {HeaderComponent} from "./component/auth/header.component";
+import {AuthService} from "./service/auth.service";
+import {ExceptionService} from "./service/exception.service";
+import {AuthActivateGuard} from "./shared/auth.activate.guard";
+import {ProfileComponent} from "./component/user/profile.component";
 
 /**
  * Created by Dreval Viacheslav on 10.12.2016.
@@ -35,11 +42,11 @@ import {MealService} from "./service/meal.service";
         UserListComponent,
         UserEditComponent,
         RestaurantComponent, RestaurantEditComponent,MealListComponent,MealEditComponent,
-        I18nPipe
+        I18nPipe, RegisterComponent,HeaderComponent, AuthComponent,ProfileComponent
     ],
     bootstrap: [AppComponent],
-    providers: [UserService, ProfileService, RestaurantService,MealService,
-        I18nService, DateTimeTransformer, DatePipe,
+    providers: [UserService, ProfileService, RestaurantService,MealService,AuthService,ExceptionService,
+        I18nService, DateTimeTransformer, DatePipe,AuthActivateGuard,
         {
             provide: APP_INITIALIZER,
             // useFactory: (i18NService: I18nService) => () => i18NService.initMessages(I18Enum.ru),
