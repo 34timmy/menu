@@ -1,8 +1,9 @@
 # menu 
 
-## REST API application for restaurant management.
+## REST API application for restaurant management with English and Russin locales.
 
-Also app deployed on Docker on remote server.To access the application, go to: <a href="http://198.211.120.104:8081">App</a>
+### Also app deployed on Docker on remote server.To access the application, go to: <a href="http://198.211.120.104:8081">App</a>
+
 
 Frontend: <a href="https://angular.io/"> Angular 2</a>
 Backend: 1)<a href="https://spring.io/">Spring (Data JPA, Security, MVC)</a>
