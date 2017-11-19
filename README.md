@@ -6,8 +6,10 @@
 
 
 Frontend: <a href="https://angular.io/"> Angular 2</a>
+
 Backend: 1)<a href="https://spring.io/">Spring (Data JPA, Security, MVC)</a>
          2)<a href="http://hibernate.org/">Hibernate</a>
+         
 Default database - HSQLDB. Also, you can change profile and use PostgreSQL.
 
 To start the project, you need: Java JDK 8, Tomcat 8+, Maven, NodeJS.
