@@ -14,6 +14,7 @@ Backend:
 Default database - HSQLDB. Also, you can change profile and use PostgreSQL.
 
 To start the project, you need: Java JDK 8, Tomcat 8+, Maven, NodeJS.
-1) Go to the project root path and launh command "mvn install" from console.
-2) Copy .war file in Tomcat's webapp folder and launch Tomcat
-3) Go to localhost:8080/
+1)Create system environment "MENU_ROOT" with folder to directory with project. For example: MENU_ROOT = "C:\menu.
+2) Go to the project root path and launh command "mvn install" from console.
+3) Copy .war file in Tomcat's webapp folder and launch Tomcat
+4) Go to localhost:8080/
